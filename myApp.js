@@ -23,7 +23,7 @@ app.get("/json", function(req, res) {
         message: "Hello json"
       });
   });
-  */
+
 
 
 var message= 'Hello json';
@@ -36,9 +36,20 @@ app.get("/json", (req, res) => {
   }
 });
 
+  */
 
 
 
+  app.use('GET /json - ::ffff:127.0.0.1', (req, res, next) => {
+    console.log('Request method:', req.method)
+    next()
+  }, (req, res, next) => {
+    console.log('Request path:', req.path)
+    next()
+  }, (req, res, next) => {
+        console.log('Request ip:', req.ip)
+        next()
+  })
 
 
 
