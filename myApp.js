@@ -25,12 +25,19 @@ app.get("/json", function(req, res) {
   });
   */
 
-
-  if (process.env.VAR_NAME === "allCaps") {
-    response = "Hello World".toUpperCase();
-  } else {
-    response = "Hello World";
+  var message= 'Hello json';
+  app.get("/json", function(req, res) {
+    res.json({
+  if (process.env.['MESSAGE_STYLE'] === "uppercase") {
+    res.json({ "message": message.toUpperCase() });
+  } else {  
+    res.json({ "message": message });
   }
+      });
+  });
+
+
+
 
 
 
